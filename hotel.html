@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RestoGest - Hôtel & Hébergement</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Petits ajouts spécifiques pour les descriptions de chambres */
-        .room-details { font-size: 0.85rem; color: #aaa; margin: 5px 0 0; }
-        .hotel-info-box { background: #1a1a1e; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #d4af37; text-align: left; }
-        .hotel-info-box h3 { color: #d4af37; margin-top: 0; }
-        .notes-section { background: #222228; padding: 15px; border-radius: 8px; margin-top: 20px; border: 1px dashed #444; font-size: 0.9rem; color: #ccc; text-align: left; }
-        .notes-section h4 { color: #ffcc00; margin-top: 0; }
-    </style>
 </head>
 <body>
 
@@ -21,60 +13,101 @@
     <p>Établissement 🌟🌟🌟 (3 Étoiles) - Confort, calme et élégance à votre service</p>
 </header>
 
-<main>
+<main class="container">
+    
     <!-- Présentation générale -->
-    <div class="hotel-info-box">
-        <h3>Bienvenue à notre Hôtel</h3>
-        <p>Profitez d'un cadre sécurisé, moderne et raffiné pour vos séjours d'affaires ou de détente à Kinshasa. Nos chambres sont entièrement équipées pour garantir votre bien-être.</p>
+    <div class="menu-box" style="border-left: 4px solid #d4af37;">
+        <h3 style="color: #d4af37; margin-top: 0;">Bienvenue à notre Hôtel</h3>
+        <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5;">Profitez d'un cadre sécurisé, moderne et raffiné pour vos séjours d'affaires ou de détente. Nos chambres sont entièrement équipées pour garantir votre bien-être.</p>
     </div>
 
-    <!-- Liste des chambres et détails -->
+    <!-- Liste des chambres avec boutons de réservation -->
     <div class="menu-box">
-        <h2>Nos Chambres & Tarifs</h2>
+        <div class="menu-section-title">Nos Chambres & Tarifs</div>
         
-        <div class="menu-item" style="align-items: flex-start; flex-direction: column;">
-            <div style="display: flex; justify-content: width: 100%; width: 100%; justify-content: space-between; align-items: center;">
-                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Chambre Standard / Simple</span>
-                <span class="price">35 $ / Nuit</span>
+        <div class="item-card" style="align-items: flex-start; flex-direction: column;">
+            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Chambre Standard / Simple</h4>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="price">35 $ / Nuit</span>
+                    <button onclick="ajouterAuPanier('Chambre Standard (Nuitée)', 35)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+                </div>
             </div>
-            <p class="room-details">Lit double confortable, climatisation, télévision écran plat, salle de bain privée avec eau chaude.</p>
+            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Lit double confortable, climatisation, télévision écran plat, salle de bain privée avec eau chaude.</p>
         </div>
         
-        <div class="menu-item" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
+        <div class="item-card" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
             <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Chambre VIP Confort</span>
-                <span class="price">50 $ / Nuit</span>
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Chambre VIP Confort</h4>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="price">50 $ / Nuit</span>
+                    <button onclick="ajouterAuPanier('Chambre VIP Confort (Nuitée)', 50)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+                </div>
             </div>
-            <p class="room-details">Grand lit King-size, salon privé, minibar, climatisation, TV connectée et service de chambre inclus.</p>
+            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Grand lit King-size, salon privé, minibar, climatisation, TV connectée et service de chambre inclus.</p>
         </div>
 
-        <div class="menu-item" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
+        <div class="item-card" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
             <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Suite Royale</span>
-                <span class="price">80 $ / Nuit</span>
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Suite Royale</h4>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="price">80 $ / Nuit</span>
+                    <button onclick="ajouterAuPanier('Suite Royale (Nuitée)', 80)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+                </div>
             </div>
-            <p class="room-details">Espace luxueux, grand salon haut de gamme, jacuzzi privé, balcon avec vue panoramique et petit-déjeuner offert.</p>
+            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Espace luxueux, grand salon haut de gamme, jacuzzi privé, balcon avec vue panoramique et petit-déjeuner offert.</p>
         </div>
     </div>
 
     <!-- Section Instructions / Notes importantes -->
-    <div class="notes-section">
-        <h4>📌 Notez bien & Instructions :</h4>
-        <ul style="padding-left: 20px; margin: 5px 0 0;">
+    <div style="background: #1a1a1e; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px dashed #444; color: #ccc; font-size: 0.9rem;">
+        <h4 style="color: #ffcc00; margin-top: 0; text-transform: uppercase; letter-spacing: 0.5px;">📌 Notez bien & Instructions :</h4>
+        <ul style="padding-left: 20px; margin: 5px 0 0; line-height: 1.6;">
             <li><strong>Check-in (Arrivée) :</strong> À partir de 14h00.</li>
             <li><strong>Check-out (Départ) :</strong> Avant 12h00 le lendemain.</li>
             <li>Le petit-déjeuner est inclus pour les suites et disponible en supplément pour les chambres standard.</li>
-            <li>Pièce d'identité exigée à l'enregistrement.</li>
+            <li>Une pièce d'identité valide est exigée à l'enregistrement.</li>
         </ul>
     </div>
 
-    <!-- Bouton pour revenir à l'accueil -->
-    <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
+    <!-- Section Panier Dynamique & WhatsApp -->
+    <div class="menu-box" style="border-left: 4px solid #25d366;">
+        <h3 style="color: #25d366; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0;">🛒 Votre Panier / Réservation</h3>
+        
+        <div id="cart-items">
+            <p style="color: #777; font-size: 0.9rem; text-align: center;">Votre panier est vide pour le moment.</p>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #333; font-size: 1.1rem; font-weight: bold;">
+            <span style="color: #fff;">Total Général :</span>
+            <span id="cart-total" style="color: #25d366;">0 $</span>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <div style="margin-bottom: 15px;">
+                <label for="table-number" style="color: #fff; font-weight: bold; margin-right: 10px;">Numéro de chambre / Table :</label>
+                <input type="number" id="table-number" placeholder="Ex: 12" style="padding: 8px; width: 80px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; text-align: center; font-size: 1rem;">
+            </div>
+
+            <button onclick="envoyerCommandeWhatsApp()" style="background: #25d366; color: #fff; border: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(37,211,102,0.3); width: 100%;">
+                🚀 Envoyer la réservation sur WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Bouton Retour -->
+    <div style="text-align: center; margin-top: 25px;">
+        <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
+    </div>
 </main>
 
 <footer>
-    <p>Développé par New Life Centre de Formation Numérique</p>
+    <div class="signature-box">
+        Plateforme développée par l'Ingénieur <span>Narcisse Kisalu</span><br>
+        <strong>New Life Centre de Formation Numérique</strong>
+    </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
