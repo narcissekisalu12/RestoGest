@@ -21,52 +21,53 @@
         <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5;">Profitez d'un cadre sécurisé, moderne et raffiné pour vos séjours d'affaires ou de détente. Nos chambres sont entièrement équipées pour garantir votre bien-être.</p>
     </div>
 
-    <!-- Liste des chambres avec boutons de réservation -->
+    <!-- Liste des chambres avec sélecteur de nuits -->
     <div class="menu-box">
         <div class="menu-section-title">Nos Chambres & Tarifs</div>
         
-        <div class="item-card" style="align-items: flex-start; flex-direction: column;">
-            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Chambre Standard / Simple</h4>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <span class="price">35 $ / Nuit</span>
-                    <button onclick="ajouterAuPanier('Chambre Standard (Nuitée)', 35)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
-                </div>
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
+                <h4 style="margin: 0 0 5px 0; color: #fff; font-size: 1.1rem;">Chambre Standard / Simple</h4>
+                <p style="margin: 0; color: #999; font-size: 0.85rem;">Lit double, clim, TV, salle de bain privée.</p>
             </div>
-            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Lit double confortable, climatisation, télévision écran plat, salle de bain privée avec eau chaude.</p>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">35 $ / Nuit</span>
+                <input type="number" id="qty-std" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de nuits">
+                <button onclick="ajouterAuPanierAvecQuantite('Chambre Standard (Nuitée)', 35, 'qty-std')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+            </div>
         </div>
         
-        <div class="item-card" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
-            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Chambre VIP Confort</h4>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <span class="price">50 $ / Nuit</span>
-                    <button onclick="ajouterAuPanier('Chambre VIP Confort (Nuitée)', 50)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
-                </div>
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
+                <h4 style="margin: 0 0 5px 0; color: #fff; font-size: 1.1rem;">Chambre VIP Confort</h4>
+                <p style="margin: 0; color: #999; font-size: 0.85rem;">Grand lit King-size, salon privé, minibar.</p>
             </div>
-            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Grand lit King-size, salon privé, minibar, climatisation, TV connectée et service de chambre inclus.</p>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">50 $ / Nuit</span>
+                <input type="number" id="qty-vip" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de nuits">
+                <button onclick="ajouterAuPanierAvecQuantite('Chambre VIP Confort (Nuitée)', 50, 'qty-vip')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+            </div>
         </div>
 
-        <div class="item-card" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
-            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem;">Suite Royale</h4>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <span class="price">80 $ / Nuit</span>
-                    <button onclick="ajouterAuPanier('Suite Royale (Nuitée)', 80)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
-                </div>
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
+                <h4 style="margin: 0 0 5px 0; color: #fff; font-size: 1.1rem;">Suite Royale</h4>
+                <p style="margin: 0; color: #999; font-size: 0.85rem;">Grand salon haut de gamme, jacuzzi privé, petit-déjeuner inclus.</p>
             </div>
-            <p style="margin: 8px 0 0; color: #999; font-size: 0.85rem;">Espace luxueux, grand salon haut de gamme, jacuzzi privé, balcon avec vue panoramique et petit-déjeuner offert.</p>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">80 $ / Nuit</span>
+                <input type="number" id="qty-suite" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de nuits">
+                <button onclick="ajouterAuPanierAvecQuantite('Suite Royale (Nuitée)', 80, 'qty-suite')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Réserver</button>
+            </div>
         </div>
     </div>
 
-    <!-- Section Instructions / Notes importantes -->
+    <!-- Instructions -->
     <div style="background: #1a1a1e; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px dashed #444; color: #ccc; font-size: 0.9rem;">
-        <h4 style="color: #ffcc00; margin-top: 0; text-transform: uppercase; letter-spacing: 0.5px;">📌 Notez bien & Instructions :</h4>
+        <h4 style="color: #ffcc00; margin-top: 0; text-transform: uppercase;">📌 Instructions :</h4>
         <ul style="padding-left: 20px; margin: 5px 0 0; line-height: 1.6;">
-            <li><strong>Check-in (Arrivée) :</strong> À partir de 14h00.</li>
-            <li><strong>Check-out (Départ) :</strong> Avant 12h00 le lendemain.</li>
-            <li>Le petit-déjeuner est inclus pour les suites et disponible en supplément pour les chambres standard.</li>
-            <li>Une pièce d'identité valide est exigée à l'enregistrement.</li>
+            <li><strong>Check-in :</strong> À partir de 14h00. | <strong>Check-out :</strong> Avant 12h00.</li>
+            <li>Pièce d'identité valide exigée à l'enregistrement.</li>
         </ul>
     </div>
 
@@ -85,7 +86,7 @@
 
         <div style="margin-top: 20px; text-align: center;">
             <div style="margin-bottom: 15px;">
-                <label for="table-number" style="color: #fff; font-weight: bold; margin-right: 10px;">Numéro de chambre / Table :</label>
+                <label for="table-number" style="color: #fff; font-weight: bold; margin-right: 10px;">Numéro de chambre :</label>
                 <input type="number" id="table-number" placeholder="Ex: 12" style="padding: 8px; width: 80px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; text-align: center; font-size: 1rem;">
             </div>
 
