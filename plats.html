@@ -18,36 +18,39 @@
     <div class="menu-box">
         <div class="menu-section-title">Nos Spécialités Culinaires</div>
         
-        <div class="item-card">
-            <div class="item-info">
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
                 <h4>Poulet Mayo avec Frites</h4>
                 <p>Poulet braisé tendre, sauce mayonnaise maison et frites croustillantes.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">10 $</span>
-                <button onclick="ajouterAuPanier('Poulet Mayo & Frites', 10)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-poulet" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Poulet Mayo & Frites', 10, 'qty-poulet')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
         
-        <div class="item-card">
-            <div class="item-info">
-                <h4>Légumes frais (Fumbwa / Feuilles de manioc)</h4>
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
+                <h4>Légumes frais (Fumbwa / Manioc)</h4>
                 <p>Accompagné de chikwangue ou plantain mûr (Makemba).</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">6 $</span>
-                <button onclick="ajouterAuPanier('Légumes frais (Fumbwa)', 6)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-legumes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Légumes frais (Fumbwa)', 6, 'qty-legumes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
 
-        <div class="item-card">
-            <div class="item-info">
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
                 <h4>Riz sauté aux Légumes & Viande</h4>
                 <p>Riz parfumé sauté au wok avec morceaux de bœuf et épices fines.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">8 $</span>
-                <button onclick="ajouterAuPanier('Riz sauté Légumes & Viande', 8)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-riz" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Riz sauté Légumes & Viande', 8, 'qty-riz')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
     </div>
