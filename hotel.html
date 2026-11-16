@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>RestoGest - Menu numérique</title>
-
+    <title>RestoGest - Hôtel & Hébergement</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Petits ajouts spécifiques pour les descriptions de chambres */
+        .room-details { font-size: 0.85rem; color: #aaa; margin: 5px 0 0; }
+        .hotel-info-box { background: #1a1a1e; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #d4af37; text-align: left; }
+        .hotel-info-box h3 { color: #d4af37; margin-top: 0; }
+        .notes-section { background: #222228; padding: 15px; border-radius: 8px; margin-top: 20px; border: 1px dashed #444; font-size: 0.9rem; color: #ccc; text-align: left; }
+        .notes-section h4 { color: #ffcc00; margin-top: 0; }
+    </style>
 </head>
-
-
 <body>
 
 <header>
-    <h1>🍽️ RestoGest</h1>
-    <p>Bienvenue dans notre restaurant</p>
+    <h1>🏨 Hôtel RestoGest</h1>
+    <p>Établissement 🌟🌟🌟 (3 Étoiles) - Confort, calme et élégance à votre service</p>
 </header>
 
-
 <main>
-
-    <h2>Notre Menu</h2>
-
-    <div class="categories">
-
-        <a href="boissons.html">
-            🍹<br>
-            Boissons
-        </a>
-
-
-        <a href="plats.html">
-            🍗<br>
-            Alimentation
-        </a>
-
-
-        <a href="grillades.html">
-            🔥<br>
-            Grillades
-        </a>
-
-
-        <a href="desserts.html">
-            🍰<br>
-            Desserts
-        </a>
-
-
-        <a href="hotel.html">
-            🏨<br>
-            Hôtel
-        </a>
-
+    <!-- Présentation générale -->
+    <div class="hotel-info-box">
+        <h3>Bienvenue à notre Hôtel</h3>
+        <p>Profitez d'un cadre sécurisé, moderne et raffiné pour vos séjours d'affaires ou de détente à Kinshasa. Nos chambres sont entièrement équipées pour garantir votre bien-être.</p>
     </div>
 
+    <!-- Liste des chambres et détails -->
+    <div class="menu-box">
+        <h2>Nos Chambres & Tarifs</h2>
+        
+        <div class="menu-item" style="align-items: flex-start; flex-direction: column;">
+            <div style="display: flex; justify-content: width: 100%; width: 100%; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Chambre Standard / Simple</span>
+                <span class="price">35 $ / Nuit</span>
+            </div>
+            <p class="room-details">Lit double confortable, climatisation, télévision écran plat, salle de bain privée avec eau chaude.</p>
+        </div>
+        
+        <div class="menu-item" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
+            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Chambre VIP Confort</span>
+                <span class="price">50 $ / Nuit</span>
+            </div>
+            <p class="room-details">Grand lit King-size, salon privé, minibar, climatisation, TV connectée et service de chambre inclus.</p>
+        </div>
 
+        <div class="menu-item" style="align-items: flex-start; flex-direction: column; margin-top: 15px;">
+            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #fff; font-size: 1.05rem;">Suite Royale</span>
+                <span class="price">80 $ / Nuit</span>
+            </div>
+            <p class="room-details">Espace luxueux, grand salon haut de gamme, jacuzzi privé, balcon avec vue panoramique et petit-déjeuner offert.</p>
+        </div>
+    </div>
+
+    <!-- Section Instructions / Notes importantes -->
+    <div class="notes-section">
+        <h4>📌 Notez bien & Instructions :</h4>
+        <ul style="padding-left: 20px; margin: 5px 0 0;">
+            <li><strong>Check-in (Arrivée) :</strong> À partir de 14h00.</li>
+            <li><strong>Check-out (Départ) :</strong> Avant 12h00 le lendemain.</li>
+            <li>Le petit-déjeuner est inclus pour les suites et disponible en supplément pour les chambres standard.</li>
+            <li>Pièce d'identité exigée à l'enregistrement.</li>
+        </ul>
+    </div>
+
+    <!-- Bouton pour revenir à l'accueil -->
+    <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
 </main>
 
-
 <footer>
-
-    <p>
-        Développé par New Life Centre de Formation Numérique
-    </p>
-
+    <p>Développé par New Life Centre de Formation Numérique</p>
 </footer>
 
-
 </body>
-
 </html>
