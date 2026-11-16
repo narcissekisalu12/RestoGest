@@ -3,98 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RestoGest - Bar & Boissons de Prestige</title>
+    <title>RestoGest - Bar & Boissons</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Styles exclusifs pour un rendu menu de luxe */
-        .menu-section-title { color: #d4af37; font-size: 1.2rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #d4af37; padding-left: 10px; }
-        .drink-card { background: #1f1f24; border: 1px solid #2a2a33; border-radius: 10px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
-        .drink-card:hover { border-color: #d4af37; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .drink-info h4 { margin: 0; color: #ffffff; font-size: 1.1rem; font-weight: 600; }
-        .drink-info p { margin: 5px 0 0; color: #999; font-size: 0.85rem; }
-        .drink-price { font-size: 1.2rem; font-weight: bold; color: #25d366; background: rgba(37, 211, 102, 0.1); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(37, 211, 102, 0.3); white-space: nowrap; }
-        
-        .signature-box { text-align: center; margin-top: 35px; padding-top: 20px; border-top: 1px solid #222; color: #777; font-size: 0.85rem; }
-        .signature-box span { color: #d4af37; font-weight: 600; }
-    </style>
 </head>
 <body>
 
 <header>
     <h1>🍹 Bar & Boissons</h1>
-    <p>Une sélection raffinée de spiritueux, vins et boissons fraîches</p>
+    <p>Notre carte complète des spiritueux, bières, sodas et rafraîchissements</p>
 </header>
 
 <main class="container">
     
     <div class="menu-box">
-        <!-- Catégorie 1 : Whiskies & Spiritueux -->
-        <div class="menu-section-title">Whisky & Spiritueux de Prestige</div>
+        <!-- Catégorie 1 : Spiritueux -->
+        <div class="menu-section-title">Whisky & Spiritueux</div>
         
-        <div class="drink-card">
-            <div class="drink-info">
+        <div class="item-card">
+            <div class="item-info">
                 <h4>Jack Daniel's Old No. 7</h4>
-                <p>Bouteille 75cl - Saveurs boisées et caramel vanillé.</p>
+                <p>Bouteille 75cl - Saveurs boisées et vanillées</p>
             </div>
-            <div class="drink-price">45 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">45 $</span>
+                <button onclick="ajouterAuPanier('Jack Daniel\'s', 45)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
-        
-        <div class="drink-card">
-            <div class="drink-info">
+
+        <div class="item-card">
+            <div class="item-info">
                 <h4>Johnnie Walker Black Label</h4>
-                <p>Bouteille 75cl - Scotch whisky riche et complexe.</p>
+                <p>Bouteille 75cl - Scotch whisky riche et complexe</p>
             </div>
-            <div class="drink-price">50 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">50 $</span>
+                <button onclick="ajouterAuPanier('Black Label', 50)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
 
-        <div class="drink-card">
-            <div class="drink-info">
-                <h4>Chivas Regal 12 Ans</h4>
-                <p>Bouteille 75cl - Notes de miel, de vanille et de pommes mûres.</p>
+        <!-- Catégorie 2 : Bières locales -->
+        <div class="menu-section-title">Bières & Brasseries Locales</div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Turbo King</h4>
+                <p>Bouteille - Brune généreuse et corsée</p>
             </div>
-            <div class="drink-price">60 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Turbo King', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
 
-        <!-- Catégorie 2 : Bières & Rafraîchissements -->
-        <div class="menu-section-title">Bières & Boissons Glacées</div>
-
-        <div class="drink-card">
-            <div class="drink-info">
-                <h4>Bière Locale (Primus / Skol / Turbo King)</h4>
-                <p>Bouteille 65cl - Servie bien glacée.</p>
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Tembo</h4>
+                <p>Bouteille - La bière de caractère</p>
             </div>
-            <div class="drink-price">3 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Tembo', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
 
-        <div class="drink-card">
-            <div class="drink-info">
-                <h4>Boissons Gazeuses (Coca, Fanta, Sprite)</h4>
-                <p>Bouteille 33cl - Fraîcheur instantanée.</p>
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Castel Beer</h4>
+                <p>Bouteille - Blonde rafraîchissante et équilibrée</p>
             </div>
-            <div class="drink-price">2 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Castel Beer', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
 
-        <div class="drink-card">
-            <div class="drink-info">
-                <h4>Eau Minérale Naturelle</h4>
-                <p>Bouteille 1.5L - Pure et rafraîchissante.</p>
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Beaufort</h4>
+                <p>Bouteille - Légère et désaltérante</p>
             </div>
-            <div class="drink-price">1.5 $</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Beaufort', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Légende</h4>
+                <p>Bouteille - Saveur unique et authentique</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Légende', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Likofi (Grand Modèle)</h4>
+                <p>Grande bouteille - Traditionnelle et populaire</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">3 $</span>
+                <button onclick="ajouterAuPanier('Likofi Grand', 3)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Likofi (Petit Modèle)</h4>
+                <p>Petite bouteille - Format pratique</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2 $</span>
+                <button onclick="ajouterAuPanier('Likofi Petit', 2)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- Catégorie 3 : Boissons Gazeuses -->
+        <div class="menu-section-title">Boissons Gazeuses & Sodas</div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Top</h4>
+                <p>Bouteille 33cl - Divers parfums fruités</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2 $</span>
+                <button onclick="ajouterAuPanier('Top', 2)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Vitalo</h4>
+                <p>Bouteille 33cl - Fraîcheur et pétillant</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2 $</span>
+                <button onclick="ajouterAuPanier('Vitalo', 2)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Dj'ino</h4>
+                <p>Bouteille 33cl - Le goût acidulé et sucré</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2 $</span>
+                <button onclick="ajouterAuPanier('Dj\'ino', 2)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- Catégorie 4 : Malt & Énergie -->
+        <div class="menu-section-title">Boissons Maltées & Énergie</div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Maltina</h4>
+                <p>Boisson sans alcool riche en malt et vitamines</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2.5 $</span>
+                <button onclick="ajouterAuPanier('Maltina', 2.5)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Énergie Malt</h4>
+                <p>Boisson énergétique au malt</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">2.5 $</span>
+                <button onclick="ajouterAuPanier('Énergie Malt', 2.5)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- Catégorie 5 : Cocktails & Apéritifs -->
+        <div class="menu-section-title">Cocktails & Apéritifs</div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <h4>Spritz</h4>
+                <p>Cocktail rafraîchissant aux notes d'orange amère</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="price">5 $</span>
+                <button onclick="ajouterAuPanier('Spritz', 5)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
         </div>
     </div>
 
-    <!-- Bouton pour revenir à l'accueil -->
-    <div style="text-align: center;">
-        <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
-    </div>
-</main>
+    <!-- Section Panier Dynamique & WhatsApp -->
+    <div class="menu-box" style="border-left: 4px solid #25d366;">
+        <h3 style="color: #25d366; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0;">🛒 Votre Panier Dynamique</h3>
+        
+        <div id="cart-items">
+            <p style="color: #777; font-size: 0.9rem; text-align: center;">Votre panier est vide pour le moment.</p>
+        </div>
 
-<footer>
-    <div class="signature-box">
-        Plateforme développée par l'Ingénieur <span>Narcisse Kisalu</span><br>
-        <strong>New Life Centre de Formation Numérique</strong>
-    </div>
-</footer>
-
-</body>
-</html>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #333; font-size: 1.1rem; font-weight: bold;">
+            <span style="color: #fff;">Total Général :</span>
+            <span id="cart-total" style="color
