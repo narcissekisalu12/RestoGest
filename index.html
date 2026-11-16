@@ -1,110 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RestoGest - Menu & Présentation</title>
+    <title>RestoGest - Menu numérique</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Section Présentation du Restaurant -->
-    <header class="restaurant-header">
-        <h1>🍽️ RestoGest</h1>
-        <p>Votre espace gastronomique moderne, chaleureux et raffiné pour tous vos moments de détente.</p>
-        <div class="restaurant-address">📍 Adresse : Avenue du Commerce, Kinshasa</div>
-    </header>
+<header>
+    <h1>🍽️ RestoGest</h1>
+    <p>Bienvenue dans notre restaurant</p>
+</header>
 
-    <main class="container">
+<main>
+    <h2>Notre Menu</h2>
 
-        <!-- Barre des Onglets -->
-        <div class="tabs-container">
-            <button class="tab-btn active" onclick="openTab(event, 'boissons')">🍹 Boissons</button>
-            <button class="tab-btn" onclick="openTab(event, 'plats')">🍗 Plats</button>
-            <button class="tab-btn" onclick="openTab(event, 'grillades')">🔥 Grillades</button>
-            <button class="tab-btn" onclick="openTab(event, 'desserts')">🍰 Desserts</button>
-            <button class="tab-btn" onclick="openTab(event, 'hotel')">🏨 Hôtel</button>
-        </div>
+    <div class="categories">
+        <a href="boissons.html">
+            🍹<br>
+            Boissons
+        </a>
 
-        <!-- Contenu : Boissons -->
-        <div id="boissons" class="tab-content active-content">
-            <h3>Bar & Boissons</h3>
-            <div class="item-row">
-                <span class="item-name">Whisky Jack Daniel's (Bouteille)</span>
-                <span class="item-price">45 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Whisky Black Label</span>
-                <span class="item-price">50 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Boisson Gazeuse / Locale (33cl)</span>
-                <span class="item-price">2 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Bière Locale Glacée</span>
-                <span class="item-price">3 $</span>
-            </div>
-        </div>
+        <a href="plats.html">
+            🍗<br>
+            Alimentation
+        </a>
 
-        <!-- Contenu : Plats -->
-        <div id="plats" class="tab-content">
-            <h3>Alimentation & Plats</h3>
-            <div class="item-row">
-                <span class="item-name">Poulet Mayo avec Frites</span>
-                <span class="item-price">10 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Légumes frais & Chikwangue</span>
-                <span class="item-price">6 $</span>
-            </div>
-        </div>
+        <a href="grillades.html">
+            🔥<br>
+            Grillades
+        </a>
 
-        <!-- Contenu : Grillades -->
-        <div id="grillades" class="tab-content">
-            <h3>Grillades au Feu de Bois</h3>
-            <div class="item-row">
-                <span class="item-name">Brochettes Mixtes (Portion de 3)</span>
-                <span class="item-price">8 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Poisson Braisé Entier & Accompagnement</span>
-                <span class="item-price">15 $</span>
-            </div>
-        </div>
+        <a href="desserts.html">
+            🍰<br>
+            Desserts
+        </a>
 
-        <!-- Contenu : Desserts -->
-        <div id="desserts" class="tab-content">
-            <h3>Desserts & Douceurs</h3>
-            <div class="item-row">
-                <span class="item-name">Salade de fruits frais de saison</span>
-                <span class="item-price">4 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Part de Gâteau au Chocolat</span>
-                <span class="item-price">5 $</span>
-            </div>
-        </div>
+        <a href="hotel.html">
+            🏨<br>
+            Hôtel
+        </a>
+    </div>
+</main>
 
-        <!-- Contenu : Hôtel -->
-        <div id="hotel" class="tab-content">
-            <h3>Hôtel & Hébergement</h3>
-            <div class="item-row">
-                <span class="item-name">Chambre Standard (Nuitée)</span>
-                <span class="item-price">35 $</span>
-            </div>
-            <div class="item-row">
-                <span class="item-name">Suite VIP Confort (Nuitée)</span>
-                <span class="item-price">70 $</span>
-            </div>
-        </div>
+<footer>
+    <p>
+        Développé par New Life Centre de Formation Numérique
+    </p>
+</footer>
 
-    </main>
-
-    <footer>
-        <p>Développé par New Life Centre de Formation Numérique</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
