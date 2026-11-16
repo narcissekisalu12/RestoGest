@@ -33,3 +33,30 @@ header p { color: #ccc; margin-top: 10px; font-size: 1.05rem; }
 /* Signature footer unifiée */
 footer { text-align: center; padding: 30px; color: #777; font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #222; }
 .signature-box span { color: #d4af37; font-weight: 600; }
+/* Barre de commande flottante globale en bas de l'écran */
+.floating-checkout-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid #d4af37;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .floating-checkout-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+}
+
+
