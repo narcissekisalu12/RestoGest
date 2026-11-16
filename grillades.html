@@ -18,36 +18,39 @@
     <div class="menu-box">
         <div class="menu-section-title">Nos Grillades du Chef</div>
         
-        <div class="item-card">
-            <div class="item-info">
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
                 <h4>Brochettes Mixtes (Portion de 3)</h4>
                 <p>Viande de bœuf marinée aux épices secrètes, cuite au feu de bois.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">8 $</span>
-                <button onclick="ajouterAuPanier('Brochettes Mixtes (3 pcs)', 8)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-brochettes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Brochettes Mixtes (3 pcs)', 8, 'qty-brochettes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
         
-        <div class="item-card">
-            <div class="item-info">
-                <h4>Poisson Braisé Entier (Capitaine ou Tilapia)</h4>
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
+                <h4>Poisson Braisé Entier (Capitaine/Tilapia)</h4>
                 <p>Mariné aux herbes fraîches, oignons et piment doux, servi avec plantains.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">15 $</span>
-                <button onclick="ajouterAuPanier('Poisson Braisé Entier', 15)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-poisson" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Poisson Braisé Entier', 15, 'qty-poisson')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
 
-        <div class="item-card">
-            <div class="item-info">
+        <div class="item-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            <div class="item-info" style="flex: 1; min-width: 200px;">
                 <h4>Côtes de Porc Grillées</h4>
                 <p>Tendre et croustillant, badigeonné de sauce barbecue maison.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">12 $</span>
-                <button onclick="ajouterAuPanier('Côtes de Porc Grillées', 12)" style="background: #d4af37; color: #000; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-cotes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
+                <button onclick="ajouterAuPanierAvecQuantite('Côtes de Porc Grillées', 12, 'qty-cotes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
     </div>
