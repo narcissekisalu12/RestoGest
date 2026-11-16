@@ -30,13 +30,16 @@ function ajouterAuPanierAvecQuantite(nom, prix, inputId) {
     alert(`✅ ${quantite}x ${nom} ajouté(s) au panier !`);
 }
 
-// Retirer un article
-function retirerDuPanier(index) {
-    panier.splice(index, 1);
-    sauvegarderEtMettreAJour();
+// 🗑️ FONCTION POUR VIDER LE PANIER MANUELLEMENT (Remet tout à zéro)
+function viderPanierComplet() {
+    if (confirm("Voulez-vous vraiment vider le panier et recommencer à zéro ?")) {
+        panier = [];
+        localStorage.removeItem('panierResto');
+        mettreAJourAffichagePanier();
+    }
 }
 
-// Mettre à jour l'affichage et générer la barre flottante magique
+// Mettre à jour et générer automatiquement la barre flottante avec le bouton Vider
 function mettreAJourAffichagePanier() {
     let totalArticles = 0;
     let totalGeneral = 0;
@@ -57,31 +60,32 @@ function mettreAJourAffichagePanier() {
 
     if (panier.length === 0) {
         floatingBar.innerHTML = `
-            <div style="color: #888; font-size: 0.9rem;">
-                🛒 Panier vide — Naviguez dans le menu pour commander
+            <div style="color: #888; font-size: 0.85rem;">
+                🛒 Panier vide — Prêt pour une nouvelle commande
             </div>
-            <div style="color: #555; font-size: 0.85rem;">
-                RestoGest Pro v2.0
+            <div style="color: #555; font-size: 0.8rem;">
+                RestoGest Pro
             </div>
         `;
         return;
     }
 
     floatingBar.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <span style="color: #d4af37; font-weight: bold; font-size: 1rem;">🛒 ${totalArticles} article(s)</span>
-            <span style="color: #25d366; font-weight: bold; font-size: 1.1rem;">Total : ${totalGeneral} $</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #d4af37; font-weight: bold; font-size: 0.9rem;">🛒 ${totalArticles} art.</span>
+            <span style="color: #25d366; font-weight: bold; font-size: 1rem;">${totalGeneral} $</span>
+            <button onclick="viderPanierComplet()" style="background: #e74c3c; color: #fff; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-weight: bold;" title="Vider le panier">🗑️ Vider</button>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <input type="number" id="floating-table-number" placeholder="N° Table/Chambre" style="padding: 6px 10px; width: 110px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; text-align: center; font-size: 0.9rem;">
-            <button onclick="envoyerCommandeWhatsAppFlottante()" style="background: #25d366; color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-weight: bold; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 10px rgba(37,211,102,0.3); display: flex; align-items: center; gap: 6px;">
-                🚀 Envoyer sur WhatsApp
+        <div style="display: flex; align-items: center; gap: 6px;">
+            <input type="number" id="floating-table-number" placeholder="N° Table" style="padding: 5px; width: 85px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; text-align: center; font-size: 0.85rem;">
+            <button onclick="envoyerCommandeWhatsAppFlottante()" style="background: #25d366; color: #fff; border: none; padding: 7px 12px; border-radius: 15px; font-weight: bold; font-size: 0.85rem; cursor: pointer;">
+                🚀 Envoyer
             </button>
         </div>
     `;
 }
 
-// Envoyer la commande et NETTOYER AUTOMATIQUEMENT LE FORMULAIRE ET LE PANIER
+// Envoyer la commande et nettoyer automatiquement la mémoire
 function envoyerCommandeWhatsAppFlottante() {
     let inputTable = document.getElementById('floating-table-number');
     let numeroTable = inputTable ? inputTable.value : '';
@@ -133,13 +137,12 @@ function envoyerCommandeWhatsAppFlottante() {
 
     let urlWhatsApp = `https://wa.me/${telephoneResto}?text=${encodeURIComponent(message)}`;
     
-    // Ouvrir WhatsApp
     window.open(urlWhatsApp, '_blank');
 
-    // 🧹 NETTOYAGE AUTOMATIQUE POST-COMMANDE
-    panier = [];                      // Vider le tableau en mémoire
-    localStorage.removeItem('panierResto'); // Effacer la mémoire du navigateur
-    mettreAJourAffichagePanier();     // Remettre la barre à l'état "Panier vide"
+    // 🧹 Nettoyage automatique complet après l'envoi
+    panier = [];
+    localStorage.removeItem('panierResto');
+    mettreAJourAffichagePanier();
 }
 
 // Charger l'affichage au démarrage de chaque page
