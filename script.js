@@ -1,50 +1,84 @@
-function openTab(evt, categoryName) {
-    let i, tabcontent, tablinks;
-    
-    // Masquer tous les contenus d'onglets
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        tabcontent[i].classList.remove("active-content");
+let panier = [];
+
+function ajouterAuPanier(nom, prix) {
+    let produitExistant = panier.find(item => item.nom === nom);
+    if (produitExistant) {
+        produitExistant.quantite += 1;
+    } else {
+        panier.push({ nom: nom, prix: prix, quantite: 1 });
     }
-    
-    // Retirer la classe 'active' de tous les boutons
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-    }
-    
-    // Afficher l'onglet sélectionné et marquer le bouton comme actif
-    document.getElementById(categoryName).style.display = "block";
-    document.getElementById(categoryName).classList.add("active-content");
-    evt.currentTarget.classList.add("active");
+    mettreAJourAffichagePanier();
 }
 
-function envoyerSurWhatsApp() {
-    // Récupérer le numéro de table
-    let numeroTable = document.getElementById('table-number').value;
+function retirerDuPanier(index) {
+    panier.splice(index, 1);
+    mettreAJourAffichagePanier();
+}
+
+function mettreAJourAffichagePanier() {
+    let listePanier = document.getElementById('cart-items');
+    let totalPanier = document.getElementById('cart-total');
     
-    if (!numeroTable) {
-        alert("S'il vous plaît, veuillez entrer votre numéro de table !");
+    if (!listePanier) return;
+
+    listePanier.innerHTML = '';
+    let total = 0;
+
+    if (panier.length === 0) {
+        listePanier.innerHTML = '<p style="color: #777; font-size: 0.9rem; text-align: center;">Votre panier est vide pour le moment.</p>';
+        totalPanier.textContent = '0 $';
         return;
     }
 
-    // Ton numéro de téléphone WhatsApp professionnel (mets ton vrai numéro ici avec l'indicatif du pays, ex: 243...)
-    let telephoneResto = "243852341188"; // (J'ai mis ton numéro basé sur ton profil, tu pourras le changer si besoin)
+    panier.forEach((item, index) => {
+        let sousTotal = item.prix * item.quantite;
+        total += sousTotal;
 
-    // Construire le message
-    let message = `*Nouvelle Commande - RestoGest*\n`;
+        let div = document.createElement('div');
+        div.style.cssText = "display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #333; font-size: 0.95rem;";
+        div.innerHTML = `
+            <span style="color: #fff;">${item.nom} (x${item.quantite})</span>
+            <div>
+                <span style="color: #25d366; font-weight: bold; margin-right: 10px;">${sousTotal} $</span>
+                <button onclick="retirerDuPanier(${index})" style="background: #e74c3c; color: #fff; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">❌</button>
+            </div>
+        `;
+        listePanier.appendChild(div);
+    });
+
+    totalPanier.textContent = total + ' $';
+}
+
+function envoyerCommandeWhatsApp() {
+    let numeroTable = document.getElementById('table-number').value;
+
+    if (!numeroTable) {
+        alert("Veuillez indiquer votre numéro de table avant d'envoyer la commande !");
+        return;
+    }
+
+    if (panier.length === 0) {
+        alert("Votre panier est vide ! Veuillez sélectionner des articles.");
+        return;
+    }
+
+    let telephoneResto = "243852341188"; // Ton numéro WhatsApp professionnel
+
+    let message = `*🍽️ Nouvelle Commande - RestoGest*\n`;
     message += `📍 *Numéro de table :* Table ${numeroTable}\n\n`;
     message += `📋 *Détails de la commande :*\n`;
-    message += `- 1x Whisky Jack Daniel's (45 $)\n`;
-    message += `- 2x Bières Glacées (6 $)\n`;
-    message += `------------------\n`;
-    message += `💰 *Total estimé : 51 $*\n\n`;
+
+    let totalGeneral = 0;
+    panier.forEach(item => {
+        let sousTotal = item.prix * item.quantite;
+        totalGeneral += sousTotal;
+        message += `- ${item.quantite}x ${item.nom} (${sousTotal} $)\n`;
+    });
+
+    message += `\n------------------\n`;
+    message += `💰 *TOTAL À PAYER : ${totalGeneral} $*\n\n`;
     message += `Merci de valider notre commande !`;
 
-    // Encoder le message pour l'URL WhatsApp
     let urlWhatsApp = `https://wa.me/${telephoneResto}?text=${encodeURIComponent(message)}`;
-
-    // Ouvrir WhatsApp
     window.open(urlWhatsApp, '_blank');
 }
