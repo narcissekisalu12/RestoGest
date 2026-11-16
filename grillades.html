@@ -9,48 +9,90 @@
 <body>
 
 <header>
-    <h1>🔥 Grillades au Feu de Bois</h1>
-    <p>Le goût unique de la braise, des marinades et des épices fines</p>
+    <h1>🔥 Grillades au Feu de Bois & Nganda</h1>
+    <p>Le goût unique de la braise, des marinades locales et des épices de Kinshasa</p>
 </header>
 
 <main class="container">
     
     <div class="menu-box">
-        <div class="menu-section-title">Nos Grillades du Chef</div>
+        <div class="menu-section-title">Nos Viandes & Grillades au Kilo / Portion</div>
         
+        <!-- 1. Porc Braisé -->
         <div class="item-card">
             <div class="item-info">
-                <h4>Brochettes Mixtes (Portion de 3)</h4>
-                <p>Viande de bœuf marinée aux épices secrètes, cuite au feu de bois.</p>
+                <h4>Viande de Porc Braisée (1 Kg)</h4>
+                <p>Côtes et morceaux tendres marinés aux épices du chef, cuits à la braise.</p>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
-                <span class="price">8 $</span>
-                <input type="number" id="qty-brochettes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
-                <button onclick="ajouterAuPanierAvecQuantite('Brochettes Mixtes (3 pcs)', 8, 'qty-brochettes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <span class="price">20 $</span>
+                <input type="number" id="qty-porc-kg" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de kilos">
+                <button onclick="ajouterAuPanierAvecQuantite('Porc Braisé (1 Kg)', 20, 'qty-porc-kg')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
         
+        <!-- 2. Chèvre Braisée (Ntaba) -->
         <div class="item-card" style="margin-top: 15px;">
             <div class="item-info">
-                <h4>Poisson Braisé Entier (Capitaine/Tilapia)</h4>
-                <p>Mariné aux herbes fraîches, oignons et piment doux, servi avec plantains.</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <span class="price">15 $</span>
-                <input type="number" id="qty-poisson" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
-                <button onclick="ajouterAuPanierAvecQuantite('Poisson Braisé Entier', 15, 'qty-poisson')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
-            </div>
-        </div>
-
-        <div class="item-card" style="margin-top: 15px;">
-            <div class="item-info">
-                <h4>Côtes de Porc Grillées</h4>
-                <p>Tendre et croustillant, badigeonné de sauce barbecue maison.</p>
+                <h4>Chèvre Braisée - Ntaba (Portion / 500g)</h4>
+                <p>La fameuse viande de chèvre locale bien épicée et grillée à point.</p>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="price">12 $</span>
-                <input type="number" id="qty-cotes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;">
-                <button onclick="ajouterAuPanierAvecQuantite('Côtes de Porc Grillées', 12, 'qty-cotes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+                <input type="number" id="qty-ntaba" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de portions">
+                <button onclick="ajouterAuPanierAvecQuantite('Chèvre Braisée / Ntaba', 12, 'qty-ntaba')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- 3. Poulet Braisé Entier -->
+        <div class="item-card" style="margin-top: 15px;">
+            <div class="item-info">
+                <h4>Poulet Braisé Entier</h4>
+                <p>Poulet entier mariné aux herbes, oignons et piment doux, servi avec plantains.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">12 $</span>
+                <input type="number" id="qty-poulet-entier" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de poulets">
+                <button onclick="ajouterAuPanierAvecQuantite('Poulet Braisé Entier', 12, 'qty-poulet-entier')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- 4. Pintade Braisée -->
+        <div class="item-card" style="margin-top: 15px;">
+            <div class="item-info">
+                <h4>Pintade Braisée</h4>
+                <p>Viande ferme et savoureuse cuite au feu de bois avec une sauce piquante à part.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">15 $</span>
+                <input type="number" id="qty-pintade" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de pintades">
+                <button onclick="ajouterAuPanierAvecQuantite('Pintade Braisée', 15, 'qty-pintade')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- 5. Brochettes Mixtes -->
+        <div class="item-card" style="margin-top: 15px;">
+            <div class="item-info">
+                <h4>Brochettes Mixtes (Portion de 3)</h4>
+                <p>Brochettes de bœuf tendre marinées aux oignons et poivrons.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">8 $</span>
+                <input type="number" id="qty-brochettes" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de portions">
+                <button onclick="ajouterAuPanierAvecQuantite('Brochettes Mixtes (3 pcs)', 8, 'qty-brochettes')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
+            </div>
+        </div>
+
+        <!-- 6. Poisson Braisé -->
+        <div class="item-card" style="margin-top: 15px;">
+            <div class="item-info">
+                <h4>Poisson Capitaine Braisé Entier</h4>
+                <p>Frais du fleuve, mariné aux épices fines et grillé sur la braise.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="price">18 $</span>
+                <input type="number" id="qty-poisson" value="1" min="1" style="width: 50px; padding: 6px; background: #111; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; font-size: 1rem;" title="Nombre de poissons">
+                <button onclick="ajouterAuPanierAvecQuantite('Poisson Capitaine Braisé', 18, 'qty-poisson')" style="background: #d4af37; color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Ajouter</button>
             </div>
         </div>
     </div>
