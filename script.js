@@ -1,4 +1,4 @@
-// Charger le panier depuis la mémoire du navigateur (localStorage) pour qu'il soit persistant entre les pages
+// Charger le panier depuis la mémoire du navigateur (localStorage)
 let panier = JSON.parse(localStorage.getItem('panierResto')) || [];
 
 // Fonction pour sauvegarder et actualiser l'affichage partout
@@ -7,15 +7,27 @@ function sauvegarderEtMettreAJour() {
     mettreAJourAffichagePanier();
 }
 
-// Ajouter un article
-function ajouterAuPanier(nom, prix) {
+// Ajouter un article avec une quantité personnalisée depuis un input
+function ajouterAuPanierAvecQuantite(nom, prix, inputId) {
+    let inputField = document.getElementById(inputId);
+    let quantite = parseInt(inputField.value);
+
+    if (isNaN(quantite) || quantite <= 0) {
+        alert("Veuillez entrer une quantité valide (au moins 1).");
+        return;
+    }
+
     let produitExistant = panier.find(item => item.nom === nom);
     if (produitExistant) {
-        produitExistant.quantite += 1;
+        produitExistant.quantite += quantite;
     } else {
-        panier.push({ nom: nom, prix: prix, quantite: 1 });
+        panier.push({ nom: nom, prix: prix, quantite: quantite });
     }
+    
     sauvegarderEtMettreAJour();
+    
+    // Remettre le champ quantité à 1 après l'ajout
+    inputField.value = 1;
 }
 
 // Retirer un article
@@ -94,7 +106,7 @@ function envoyerCommandeWhatsApp() {
     window.open(urlWhatsApp, '_blank');
 }
 
-// Charger l'affichage du panier dès que l'on ouvre n'importe quelle page
+// Charger l'affichage du panier dès l'ouverture d'une page
 window.onload = function() {
     mettreAJourAffichagePanier();
 };
