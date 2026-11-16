@@ -24,18 +24,26 @@ const produits = [
 
 let menu = document.getElementById("menu");
 
+
 produits.forEach(function(produit){
 
     menu.innerHTML += `
         <div class="produit">
             <h3>${produit.nom}</h3>
-            <p>${produit.categorie}</p>
-            <p>${produit.prix} FC</p>
+            <p>Catégorie : ${produit.categorie}</p>
+            <p>Prix : ${produit.prix} FC</p>
 
-            <button>
+            <button onclick="commander('${produit.nom}')">
                 Commander
             </button>
         </div>
     `;
 
 });
+
+
+function commander(nomProduit){
+
+    alert("Vous avez choisi : " + nomProduit);
+
+}
