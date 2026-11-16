@@ -1,24 +1,35 @@
-/* Style général de base */
+* { box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #0f0f11; color: #f1f1f1; }
+
+/* En-tête général */
 header { text-align: center; padding: 40px 20px; background: #1a1a1e; border-bottom: 3px solid #d4af37; }
-header h1 { color: #d4af37; margin: 0; font-size: 2.2rem; }
-header p { color: #ccc; margin-top: 10px; }
+header h1 { color: #d4af37; margin: 0; font-size: 2.3rem; text-transform: uppercase; letter-spacing: 1px; }
+header p { color: #ccc; margin-top: 10px; font-size: 1.05rem; }
 
-main { max-width: 800px; margin: 30px auto; padding: 0 20px; text-align: center; }
-main h2 { color: #fff; margin-bottom: 25px; }
+/* Conteneur principal */
+.container { max-width: 800px; margin: 30px auto; padding: 0 15px; }
 
-/* Grille des catégories (Page d'accueil) */
-.categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; justify-content: center; }
-.categories a { background: #1a1a1e; color: #fff; padding: 25px 15px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 1px solid #333; transition: all 0.3s ease; display: block; }
+/* Grille de la page d'accueil */
+.categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; justify-content: center; margin-top: 20px; }
+.categories a { background: #1a1a1e; color: #fff; padding: 25px 15px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 1px solid #2a2a33; transition: all 0.3s ease; display: block; text-align: center; }
 .categories a:hover { background: #d4af37; color: #000; transform: translateY(-3px); border-color: #d4af37; }
 
-/* Bouton de retour et mise en page des sous-pages */
-.menu-box { background: #1a1a1e; padding: 25px; border-radius: 12px; margin-top: 20px; text-align: left; border-left: 4px solid #d4af37; }
-.menu-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #333; }
-.menu-item:last-child { border-bottom: none; }
-.price { color: #25d366; font-weight: bold; }
+/* Boîtes de contenu et cartes de menu (Uniforme pour toutes les pages) */
+.menu-box { background: #1a1a1e; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border-left: 4px solid #d4af37; margin-bottom: 25px; text-align: left; }
+.menu-section-title { color: #d4af37; font-size: 1.2rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #d4af37; padding-left: 10px; }
 
-.back-btn { display: inline-block; margin-top: 25px; background: #222; color: #d4af37; padding: 10px 20px; border-radius: 20px; text-decoration: none; border: 1px solid #d4af37; font-weight: bold; }
+.item-card { background: #1f1f24; border: 1px solid #2a2a33; border-radius: 10px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+.item-card:hover { border-color: #d4af37; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+.item-info h4 { margin: 0; color: #ffffff; font-size: 1.1rem; font-weight: 600; }
+.item-info p { margin: 5px 0 0; color: #999; font-size: 0.85rem; }
+
+.price { font-size: 1.2rem; font-weight: bold; color: #25d366; background: rgba(37, 211, 102, 0.1); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(37, 211, 102, 0.3); white-space: nowrap; }
+
+/* Bouton retour */
+.back-btn { display: inline-block; background: #222; color: #d4af37; padding: 12px 25px; border-radius: 25px; text-decoration: none; border: 1px solid #d4af37; font-weight: bold; transition: all 0.3s; margin-top: 10px; }
 .back-btn:hover { background: #d4af37; color: #000; }
 
-footer { text-align: center; padding: 25px; color: #666; font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #222; }
+/* Signature footer unifiée */
+footer { text-align: center; padding: 30px; color: #777; font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #222; }
+.signature-box span { color: #d4af37; font-weight: 600; }
