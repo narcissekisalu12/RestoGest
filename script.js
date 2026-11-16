@@ -19,3 +19,32 @@ function openTab(evt, categoryName) {
     document.getElementById(categoryName).classList.add("active-content");
     evt.currentTarget.classList.add("active");
 }
+
+function envoyerSurWhatsApp() {
+    // Récupérer le numéro de table
+    let numeroTable = document.getElementById('table-number').value;
+    
+    if (!numeroTable) {
+        alert("S'il vous plaît, veuillez entrer votre numéro de table !");
+        return;
+    }
+
+    // Ton numéro de téléphone WhatsApp professionnel (mets ton vrai numéro ici avec l'indicatif du pays, ex: 243...)
+    let telephoneResto = "243852341188"; // (J'ai mis ton numéro basé sur ton profil, tu pourras le changer si besoin)
+
+    // Construire le message
+    let message = `*Nouvelle Commande - RestoGest*\n`;
+    message += `📍 *Numéro de table :* Table ${numeroTable}\n\n`;
+    message += `📋 *Détails de la commande :*\n`;
+    message += `- 1x Whisky Jack Daniel's (45 $)\n`;
+    message += `- 2x Bières Glacées (6 $)\n`;
+    message += `------------------\n`;
+    message += `💰 *Total estimé : 51 $*\n\n`;
+    message += `Merci de valider notre commande !`;
+
+    // Encoder le message pour l'URL WhatsApp
+    let urlWhatsApp = `https://wa.me/${telephoneResto}?text=${encodeURIComponent(message)}`;
+
+    // Ouvrir WhatsApp
+    window.open(urlWhatsApp, '_blank');
+}
