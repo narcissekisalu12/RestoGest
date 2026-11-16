@@ -3,47 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RestoGest - Boissons</title>
+    <title>RestoGest - Bar & Boissons de Prestige</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles exclusifs pour un rendu menu de luxe */
+        .menu-section-title { color: #d4af37; font-size: 1.2rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #d4af37; padding-left: 10px; }
+        .drink-card { background: #1f1f24; border: 1px solid #2a2a33; border-radius: 10px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .drink-card:hover { border-color: #d4af37; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .drink-info h4 { margin: 0; color: #ffffff; font-size: 1.1rem; font-weight: 600; }
+        .drink-info p { margin: 5px 0 0; color: #999; font-size: 0.85rem; }
+        .drink-price { font-size: 1.2rem; font-weight: bold; color: #25d366; background: rgba(37, 211, 102, 0.1); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(37, 211, 102, 0.3); white-space: nowrap; }
+        
+        .signature-box { text-align: center; margin-top: 35px; padding-top: 20px; border-top: 1px solid #222; color: #777; font-size: 0.85rem; }
+        .signature-box span { color: #d4af37; font-weight: 600; }
+    </style>
 </head>
 <body>
 
 <header>
     <h1>🍹 Bar & Boissons</h1>
-    <p>Découvrez notre sélection de boissons fraîches et spiritueux</p>
+    <p>Une sélection raffinée de spiritueux, vins et boissons fraîches</p>
 </header>
 
-<main>
+<main class="container">
+    
     <div class="menu-box">
-        <h2>Nos Boissons Disponibles</h2>
+        <!-- Catégorie 1 : Whiskies & Spiritueux -->
+        <div class="menu-section-title">Whisky & Spiritueux de Prestige</div>
         
-        <div class="menu-item">
-            <span>Whisky Jack Daniel's (Bouteille)</span>
-            <span class="price">45 $</span>
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Jack Daniel's Old No. 7</h4>
+                <p>Bouteille 75cl - Saveurs boisées et caramel vanillé.</p>
+            </div>
+            <div class="drink-price">45 $</div>
         </div>
         
-        <div class="menu-item">
-            <span>Whisky Black Label</span>
-            <span class="price">50 $</span>
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Johnnie Walker Black Label</h4>
+                <p>Bouteille 75cl - Scotch whisky riche et complexe.</p>
+            </div>
+            <div class="drink-price">50 $</div>
         </div>
 
-        <div class="menu-item">
-            <span>Bière Locale Glacée</span>
-            <span class="price">3 $</span>
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Chivas Regal 12 Ans</h4>
+                <p>Bouteille 75cl - Notes de miel, de vanille et de pommes mûres.</p>
+            </div>
+            <div class="drink-price">60 $</div>
         </div>
 
-        <div class="menu-item">
-            <span>Boisson Gazeuse / Locale (33cl)</span>
-            <span class="price">2 $</span>
+        <!-- Catégorie 2 : Bières & Rafraîchissements -->
+        <div class="menu-section-title">Bières & Boissons Glacées</div>
+
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Bière Locale (Primus / Skol / Turbo King)</h4>
+                <p>Bouteille 65cl - Servie bien glacée.</p>
+            </div>
+            <div class="drink-price">3 $</div>
+        </div>
+
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Boissons Gazeuses (Coca, Fanta, Sprite)</h4>
+                <p>Bouteille 33cl - Fraîcheur instantanée.</p>
+            </div>
+            <div class="drink-price">2 $</div>
+        </div>
+
+        <div class="drink-card">
+            <div class="drink-info">
+                <h4>Eau Minérale Naturelle</h4>
+                <p>Bouteille 1.5L - Pure et rafraîchissante.</p>
+            </div>
+            <div class="drink-price">1.5 $</div>
         </div>
     </div>
 
     <!-- Bouton pour revenir à l'accueil -->
-    <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
+    <div style="text-align: center;">
+        <a href="index.html" class="back-btn">⬅️ Retour au Menu Principal</a>
+    </div>
 </main>
 
 <footer>
-    <p>Développé par New Life Centre de Formation Numérique</p>
+    <div class="signature-box">
+        Plateforme développée par l'Ingénieur <span>Narcisse Kisalu</span><br>
+        <strong>New Life Centre de Formation Numérique</strong>
+    </div>
 </footer>
 
 </body>
