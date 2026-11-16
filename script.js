@@ -27,7 +27,6 @@ function ajouterAuPanierAvecQuantite(nom, prix, inputId) {
     sauvegarderEtMettreAJour();
     inputField.value = 1; // Remettre à 1 par défaut
 
-    // Petite animation visuelle ou message de confirmation discret
     alert(`✅ ${quantite}x ${nom} ajouté(s) au panier !`);
 }
 
@@ -47,7 +46,6 @@ function mettreAJourAffichagePanier() {
         totalGeneral += item.prix * item.quantite;
     });
 
-    // Chercher ou créer automatiquement la barre flottante en bas de page
     let floatingBar = document.getElementById('global-floating-bar');
     
     if (!floatingBar) {
@@ -57,11 +55,10 @@ function mettreAJourAffichagePanier() {
         document.body.appendChild(floatingBar);
     }
 
-    // Si le panier est vide, on peut masquer ou afficher un état vide
     if (panier.length === 0) {
         floatingBar.innerHTML = `
             <div style="color: #888; font-size: 0.9rem;">
-                🛒 Panier vide — Naviguez dans le menu pour ajouter des articles
+                🛒 Panier vide — Naviguez dans le menu pour commander
             </div>
             <div style="color: #555; font-size: 0.85rem;">
                 RestoGest Pro v2.0
@@ -70,7 +67,6 @@ function mettreAJourAffichagePanier() {
         return;
     }
 
-    // Si le panier contient des articles, on affiche le résumé dynamique et le bouton WhatsApp direct !
     floatingBar.innerHTML = `
         <div style="display: flex; align-items: center; gap: 15px;">
             <span style="color: #d4af37; font-weight: bold; font-size: 1rem;">🛒 ${totalArticles} article(s)</span>
@@ -85,7 +81,7 @@ function mettreAJourAffichagePanier() {
     `;
 }
 
-// Envoyer la commande structurée depuis la barre flottante
+// Envoyer la commande et NETTOYER AUTOMATIQUEMENT LE FORMULAIRE ET LE PANIER
 function envoyerCommandeWhatsAppFlottante() {
     let inputTable = document.getElementById('floating-table-number');
     let numeroTable = inputTable ? inputTable.value : '';
@@ -136,7 +132,14 @@ function envoyerCommandeWhatsAppFlottante() {
     message += `Merci de valider notre demande !`;
 
     let urlWhatsApp = `https://wa.me/${telephoneResto}?text=${encodeURIComponent(message)}`;
+    
+    // Ouvrir WhatsApp
     window.open(urlWhatsApp, '_blank');
+
+    // 🧹 NETTOYAGE AUTOMATIQUE POST-COMMANDE
+    panier = [];                      // Vider le tableau en mémoire
+    localStorage.removeItem('panierResto'); // Effacer la mémoire du navigateur
+    mettreAJourAffichagePanier();     // Remettre la barre à l'état "Panier vide"
 }
 
 // Charger l'affichage au démarrage de chaque page
