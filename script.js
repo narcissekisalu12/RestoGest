@@ -1,5 +1,13 @@
-let panier = [];
+// Charger le panier depuis la mémoire du navigateur (localStorage) pour qu'il soit persistant entre les pages
+let panier = JSON.parse(localStorage.getItem('panierResto')) || [];
 
+// Fonction pour sauvegarder et actualiser l'affichage partout
+function sauvegarderEtMettreAJour() {
+    localStorage.setItem('panierResto', JSON.stringify(panier));
+    mettreAJourAffichagePanier();
+}
+
+// Ajouter un article
 function ajouterAuPanier(nom, prix) {
     let produitExistant = panier.find(item => item.nom === nom);
     if (produitExistant) {
@@ -7,14 +15,16 @@ function ajouterAuPanier(nom, prix) {
     } else {
         panier.push({ nom: nom, prix: prix, quantite: 1 });
     }
-    mettreAJourAffichagePanier();
+    sauvegarderEtMettreAJour();
 }
 
+// Retirer un article
 function retirerDuPanier(index) {
     panier.splice(index, 1);
-    mettreAJourAffichagePanier();
+    sauvegarderEtMettreAJour();
 }
 
+// Mettre à jour l'affichage du panier sur la page active
 function mettreAJourAffichagePanier() {
     let listePanier = document.getElementById('cart-items');
     let totalPanier = document.getElementById('cart-total');
@@ -26,7 +36,7 @@ function mettreAJourAffichagePanier() {
 
     if (panier.length === 0) {
         listePanier.innerHTML = '<p style="color: #777; font-size: 0.9rem; text-align: center;">Votre panier est vide pour le moment.</p>';
-        totalPanier.textContent = '0 $';
+        if (totalPanier) totalPanier.textContent = '0 $';
         return;
     }
 
@@ -46,14 +56,15 @@ function mettreAJourAffichagePanier() {
         listePanier.appendChild(div);
     });
 
-    totalPanier.textContent = total + ' $';
+    if (totalPanier) totalPanier.textContent = total + ' $';
 }
 
+// Envoyer la commande globale sur WhatsApp
 function envoyerCommandeWhatsApp() {
     let numeroTable = document.getElementById('table-number').value;
 
     if (!numeroTable) {
-        alert("Veuillez indiquer votre numéro de table avant d'envoyer la commande !");
+        alert("Veuillez indiquer votre numéro de table ou de chambre avant d'envoyer la commande !");
         return;
     }
 
@@ -65,8 +76,8 @@ function envoyerCommandeWhatsApp() {
     let telephoneResto = "243852341188"; // Ton numéro WhatsApp professionnel
 
     let message = `*🍽️ Nouvelle Commande - RestoGest*\n`;
-    message += `📍 *Numéro de table :* Table ${numeroTable}\n\n`;
-    message += `📋 *Détails de la commande :*\n`;
+    message += `📍 *Numéro de table/chambre :* ${numeroTable}\n\n`;
+    message += `📋 *Détails de la commande globale :*\n`;
 
     let totalGeneral = 0;
     panier.forEach(item => {
@@ -76,9 +87,14 @@ function envoyerCommandeWhatsApp() {
     });
 
     message += `\n------------------\n`;
-    message += `💰 *TOTAL À PAYER : ${totalGeneral} $*\n\n`;
+    message += `💰 *TOTAL GÉNÉRAL : ${totalGeneral} $*\n\n`;
     message += `Merci de valider notre commande !`;
 
     let urlWhatsApp = `https://wa.me/${telephoneResto}?text=${encodeURIComponent(message)}`;
     window.open(urlWhatsApp, '_blank');
 }
+
+// Charger l'affichage du panier dès que l'on ouvre n'importe quelle page
+window.onload = function() {
+    mettreAJourAffichagePanier();
+};
